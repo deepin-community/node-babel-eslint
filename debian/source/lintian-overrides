@@ -1,0 +1,7 @@
+# False positive
+source: source-is-missing debian/build_modules/@babel/parser/lib/index.js line length is 303 characters (>256)
+source: source-contains-prebuilt-javascript-object debian/build_modules/@babel/parser/lib/index.js line length is 303 characters (>256)
+# Test files
+source: source-is-missing debian/tests/test_modules/*
+source: very-long-line-length-in-source-file debian/tests/test_modules/*
+source-contains-prebuilt-javascript-object debian/tests/test_modules/*

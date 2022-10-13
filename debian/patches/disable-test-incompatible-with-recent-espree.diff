@@ -1,0 +1,67 @@
+Description: disable tests incompatible with espree ≥ 6
+Author: Xavier Guimard <yadd@debian.org>
+Forwarded: not-needed
+Last-Update: 2020-05-09
+
+--- a/test/babel-eslint.js
++++ b/test/babel-eslint.js
+@@ -216,6 +216,7 @@
+     parseAndAssertSame("<a></a>");
+   });
+ 
++  /*
+   it("jsx text with content", () => {
+     parseAndAssertSame("<a>Hello, world!</a>");
+   });
+@@ -223,6 +224,7 @@
+   it("nested jsx", () => {
+     parseAndAssertSame("<div>\n<h1>Wat</h1>\n</div>");
+   });
++  */
+ 
+   it("default import", () => {
+     parseAndAssertSame('import foo from "foo";');
+@@ -480,9 +482,11 @@
+       parseAndAssertSame("return;");
+     });
+ 
++    /*
+     it("super outside method", () => {
+       parseAndAssertSame("function F() { super(); }");
+     });
++    */
+ 
+     it("StringLiteral", () => {
+       parseAndAssertSame("");
+@@ -523,6 +527,7 @@
+       `);
+     });
+ 
++    /*
+     it("RestOperator", () => {
+       parseAndAssertSame("var { a, ...b } = c");
+       parseAndAssertSame("var [ a, ...b ] = c");
+@@ -534,6 +539,7 @@
+       parseAndAssertSame("var a = [ a, ...b ]");
+       parseAndAssertSame("var a = sum(...b)");
+     });
++    */
+ 
+     it("Async/Await", () => {
+       parseAndAssertSame(`
+--- a/test/z_parser-for-eslint-after-patched.js
++++ b/test/z_parser-for-eslint-after-patched.js
+@@ -21,6 +21,7 @@
+    * monkeypatched, because this causes some correctness issues. For example, if the enhanced referencer
+    * is used after the original referencer is monkeypatched, type annotation references are counted twice.
+    */
++  /*
+   it("does not visit type annotations multiple times after monkeypatching and calling parseForESLint()", () => {
+     assertImplementsAST(
+       espree.parse("foo", { sourceType: "module" }),
+@@ -42,4 +43,5 @@
+ 
+     assert.strictEqual(fooVariable.references.length, 1);
+   });
++  */
+ });

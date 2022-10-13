@@ -1,0 +1,45 @@
+Source: node-babel-eslint
+Section: javascript
+Priority: optional
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Uploaders: Pirate Praveen <praveen@debian.org>
+Build-Depends: debhelper-compat (= 12)
+ , eslint <!nocheck>
+ , mocha <!nocheck>
+ , node-babel-code-frame (>= 7) <!nocheck>
+ , node-babel-parser (>= 7) <!nocheck>
+ , node-babel-traverse (>= 7) <!nocheck>
+ , node-babel-types (>= 7) <!nocheck>
+ , node-debbundle-es-to-primitive <!nocheck>
+ , node-eslint-scope <!nocheck>
+ , node-eslint-visitor-keys <!nocheck>
+ , node-espree <!nocheck>
+ , node-object-inspect <!nocheck>
+ , node-read-pkg-up <!nocheck>
+ , node-resolve <!nocheck>
+ , pkg-js-tools (>= 0.9.35~)
+Standards-Version: 4.5.0
+Vcs-Browser: https://salsa.debian.org/js-team/node-babel-eslint
+Vcs-Git: https://salsa.debian.org/js-team/node-babel-eslint.git
+Homepage: https://github.com/babel/babel-eslint
+Testsuite: autopkgtest-pkg-nodejs
+Rules-Requires-Root: no
+
+Package: node-babel-eslint
+Architecture: all
+Depends: ${misc:Depends}
+ , node-babel-code-frame (>= 7)
+ , node-babel-parser (>= 7)
+ , node-babel-traverse (>= 7)
+ , node-babel-types (>= 7)
+ , node-eslint-visitor-keys
+ , node-resolve
+ , nodejs
+Description: Custom parser for ESLint
+ babel-eslint allows you to lint ALL valid Babel code with the fantastic ESLint.
+ .
+ You only need to use babel-eslint if you are using types (Flow) or
+ experimental features not supported in ESLint itself yet. Otherwise try the
+ default parser (you don't have to use it just because you are using Babel).
+ .
+ Node.js is an event-based server-side JavaScript engine.

@@ -1,0 +1,5 @@
+version=3
+opts=\
+dversionmangle=s/\+(debian|dfsg|ds|deb)(\.\d+)?$//,\
+filenamemangle=s/.*\/v?([\d\.-]+)\.tar\.gz/node-babel-eslint-$1.tar.gz/ \
+ https://github.com/babel/babel-eslint/tags .*/archive/v?([\d\.]+).tar.gz
